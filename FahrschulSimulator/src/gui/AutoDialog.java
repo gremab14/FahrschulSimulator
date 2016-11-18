@@ -5,6 +5,8 @@
  */
 package gui;
 
+import bl.Auto;
+
 /**
  *
  * @author Martin
@@ -21,6 +23,8 @@ public class AutoDialog extends javax.swing.JDialog
         initComponents();
     }
 
+    private Auto auto;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

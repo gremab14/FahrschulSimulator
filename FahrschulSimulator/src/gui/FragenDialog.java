@@ -5,6 +5,8 @@
  */
 package gui;
 
+import bl.Frage;
+
 /**
  *
  * @author Martin
@@ -21,6 +23,9 @@ public class FragenDialog extends javax.swing.JDialog
         initComponents();
     }
 
+    private Frage frage;
+    private boolean isRichtig;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
