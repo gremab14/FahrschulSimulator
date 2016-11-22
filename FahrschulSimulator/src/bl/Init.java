@@ -5,13 +5,16 @@
  */
 package bl;
 
+import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +22,9 @@ import java.util.logging.Logger;
  */
 public class Init
 {
+    
+    private LinkedList<Frage> list = new LinkedList();
+    
 
     public static void main(String[] args)
     {
@@ -45,13 +51,30 @@ public class Init
     public void initFragen() throws Exception
     {
         String path = "";
-
+        
         BufferedReader br = new BufferedReader(new FileReader(path));
-
+        Frage currentFrage;
         String line;
         while ((line = br.readLine()) != null)
         {
-
+           String [] splitFrage = line.split(";");
+           ArrayList<Antwort> antworten = null;
+           if(splitFrage[0].equals("f"))
+           {
+               currentFrage = new Frage(splitFrage[1],Integer.parseInt(splitFrage[2]),antworten,splitFrage[3]);
+               line = br.readLine();
+               while(line.charAt(0) != 'f')
+               {
+                   String [] splitAntwort = line.split(";");
+                   antworten.add(new Antwort(splitAntwort[1], (Integer.parseInt(splitAntwort[2])== 1)));
+                   
+               }
+               currentFrage.setAntworten(antworten);
+           }
+           else
+           {
+               JOptionPane.showMessageDialog(null, "Falsche Datei angegeben");
+           }
         }
     }
 
