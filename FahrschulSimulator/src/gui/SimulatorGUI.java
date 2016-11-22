@@ -20,6 +20,31 @@ public class SimulatorGUI extends javax.swing.JFrame
         initComponents();
     }
 
+    /* Image
+    
+    JLabel mylabel = new JLabel();
+            String fileName = System.getProperty("user.dir")
+            + File.separator + "src" + File.separator + "data"
+            + File.separator + "Earth.gif";
+            ImageIcon image = new ImageIcon(fileName);
+            //Bild skalieren
+            Image img = null;
+            int width = 80;
+            int height = 60;
+            try {
+                img = ImageIO.read(new File(fileName));
+                img = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                mylabel.setIcon(new ImageIcon(img));
+            } catch (IOException IOException) {            }
+            mylabel.setAlignmentY(image.getIconHeight());
+            return mylabel;
+    
+    
+    */
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
