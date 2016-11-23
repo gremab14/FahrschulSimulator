@@ -7,6 +7,7 @@ package bl;
 
 import java.awt.Image;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.ObjectOutputStream;
@@ -50,7 +51,7 @@ public class Init
 
     public void initFragen() throws Exception
     {
-        String path = "";
+        String path = System.getProperty("user.dir")+File.separator+"src";
         
         BufferedReader br = new BufferedReader(new FileReader(path));
         Frage currentFrage;
@@ -69,7 +70,16 @@ public class Init
                    antworten.add(new Antwort(splitAntwort[1], (Integer.parseInt(splitAntwort[2])== 1)));
                    
                }
+               for(Frage f: list)
+               {
+                   System.out.println("Fragen: "+f);
+               }
+               for(Antwort a: antworten)
+               {
+                   System.out.println("Antworten: "+a);
+               }
                currentFrage.setAntworten(antworten);
+               list.add(currentFrage);
            }
            else
            {

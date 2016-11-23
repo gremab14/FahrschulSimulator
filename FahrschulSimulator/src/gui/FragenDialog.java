@@ -13,19 +13,30 @@ import bl.Frage;
  */
 public class FragenDialog extends javax.swing.JDialog
 {
-
-    /**
-     * Creates new form FragenDialog
-     */
-    public FragenDialog(java.awt.Frame parent, boolean modal)
-    {
-        super(parent, modal);
-        initComponents();
-    }
-
     private Frage frage;
     private boolean isRichtig;
     
+    /**
+     * Creates new form FragenDialog
+     */
+    public FragenDialog(java.awt.Frame parent, boolean modal,Frage f)
+    {
+        super(parent, modal);
+        initComponents();
+        frage = f;
+    }
+    
+    public void initFroge()
+    {
+        
+        plMain.setBorder(javax.swing.BorderFactory.createTitledBorder("Frage Nr.: "+frage.getNummer()));
+        cbAntwort1.setText(frage.getAntworten().get(0).getAntwort());
+        cbAntwort2.setText(frage.getAntworten().get(1).getAntwort());
+        cbAntwort3.setText(frage.getAntworten().get(2).getAntwort());
+        cbAntwort4.setText(frage.getAntworten().get(3).getAntwort());
+    }
+
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,21 +44,65 @@ public class FragenDialog extends javax.swing.JDialog
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
+
+        plMain = new javax.swing.JPanel();
+        plBild = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        lbFrage = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        cbAntwort1 = new javax.swing.JCheckBox();
+        cbAntwort2 = new javax.swing.JCheckBox();
+        cbAntwort3 = new javax.swing.JCheckBox();
+        cbAntwort4 = new javax.swing.JCheckBox();
+        btWeiter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        plMain.setBorder(javax.swing.BorderFactory.createTitledBorder("Frage Nr.:"));
+        plMain.setLayout(new java.awt.GridLayout(2, 1));
+
+        javax.swing.GroupLayout plBildLayout = new javax.swing.GroupLayout(plBild);
+        plBild.setLayout(plBildLayout);
+        plBildLayout.setHorizontalGroup(
+            plBildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 591, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        plBildLayout.setVerticalGroup(
+            plBildLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 172, Short.MAX_VALUE)
         );
+
+        plMain.add(plBild);
+
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
+        lbFrage.setText("jLabel1");
+        lbFrage.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel3.add(lbFrage, java.awt.BorderLayout.NORTH);
+
+        jPanel4.setLayout(new java.awt.GridLayout(2, 2));
+
+        cbAntwort1.setText("jCheckBox1");
+        jPanel4.add(cbAntwort1);
+
+        cbAntwort2.setText("jCheckBox2");
+        jPanel4.add(cbAntwort2);
+
+        cbAntwort3.setText("jCheckBox3");
+        jPanel4.add(cbAntwort3);
+
+        cbAntwort4.setText("jCheckBox4");
+        jPanel4.add(cbAntwort4);
+
+        jPanel3.add(jPanel4, java.awt.BorderLayout.CENTER);
+
+        plMain.add(jPanel3);
+
+        getContentPane().add(plMain, java.awt.BorderLayout.CENTER);
+
+        btWeiter.setText("Weiter");
+        getContentPane().add(btWeiter, java.awt.BorderLayout.SOUTH);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -55,57 +110,67 @@ public class FragenDialog extends javax.swing.JDialog
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[])
-    {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(FragenDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(FragenDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(FragenDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(FragenDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                FragenDialog dialog = new FragenDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter()
-                {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e)
-                    {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[])
+//    {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try
+//        {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+//            {
+//                if ("Nimbus".equals(info.getName()))
+//                {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex)
+//        {
+//            java.util.logging.Logger.getLogger(FragenDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex)
+//        {
+//            java.util.logging.Logger.getLogger(FragenDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex)
+//        {
+//            java.util.logging.Logger.getLogger(FragenDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+//        {
+//            java.util.logging.Logger.getLogger(FragenDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the dialog */
+//        java.awt.EventQueue.invokeLater(new Runnable()
+//        {
+////            public void run()
+////            {
+////                FragenDialog dialog = new FragenDialog(new javax.swing.JFrame(), true);
+////                dialog.addWindowListener(new java.awt.event.WindowAdapter()
+////                {
+////                    @Override
+////                    public void windowClosing(java.awt.event.WindowEvent e)
+////                    {
+////                        System.exit(0);
+////                    }
+////                });
+////                dialog.setVisible(true);
+////            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btWeiter;
+    private javax.swing.JCheckBox cbAntwort1;
+    private javax.swing.JCheckBox cbAntwort2;
+    private javax.swing.JCheckBox cbAntwort3;
+    private javax.swing.JCheckBox cbAntwort4;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lbFrage;
+    private javax.swing.JPanel plBild;
+    private javax.swing.JPanel plMain;
     // End of variables declaration//GEN-END:variables
 }

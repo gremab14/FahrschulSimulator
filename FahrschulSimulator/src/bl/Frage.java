@@ -56,6 +56,11 @@ public class Frage implements Serializable
     {
         this.antworten = antworten;
     }
+
+    @Override
+    public String toString() {
+        return "Frage{" + "frage=" + frage + ", nummer=" + nummer + ", antworten=" + antworten +  ", pfadBild=" + pfadBild + '}';
+    }
     
     
 }
