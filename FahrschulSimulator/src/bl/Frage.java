@@ -24,8 +24,11 @@ public class Frage implements Serializable
         
         this.pfadBild += pfadBild;
     }
-    
-    
+
+    public String getPfadBild()
+    {
+        return pfadBild;
+    }
 
     public String getFrage()
     {
