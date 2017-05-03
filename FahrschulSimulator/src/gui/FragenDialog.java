@@ -37,7 +37,7 @@ public class FragenDialog extends javax.swing.JDialog
         lbBild.setOpaque(true);
         lbBild.setIcon(new ImageIcon(pfad));
         
-        aufDialogSetzen();
+        //aufDialogSetzen();
     }
     
     public void aufDialogSetzen()
@@ -45,6 +45,7 @@ public class FragenDialog extends javax.swing.JDialog
         if(frage == null)
         {
             JOptionPane.showMessageDialog(null, "Ein Fehler im FragenDialog");
+            return;
         }
         
         lbNummer.setText("" + frage.getNummer());

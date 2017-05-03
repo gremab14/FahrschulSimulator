@@ -1,4 +1,3 @@
-
 package bl;
 
 import java.awt.Color;
