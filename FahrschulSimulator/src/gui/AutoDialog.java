@@ -6,6 +6,7 @@
 package gui;
 
 import bl.Auto;
+import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
@@ -31,6 +32,15 @@ public class AutoDialog extends javax.swing.JDialog
         setLocationRelativeTo(this);
         
         setTitle("Auto auswählen");
+        
+        rbtBatmobil.setOpaque(true);
+        rbtSportwagen.setOpaque(true);
+        rbtStandard.setOpaque(true);
+        btnAbbrechen.setOpaque(true);
+        btnAuswaehlen.setOpaque(true);
+        
+        
+        setBackground(Color.yellow);
         
         
         int width = 200;
@@ -71,25 +81,43 @@ public class AutoDialog extends javax.swing.JDialog
         btnAbbrechen = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new java.awt.GridLayout(4, 2));
 
+        rbtStandard.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rbtStandard);
         rbtStandard.setSelected(true);
-        rbtStandard.setText("Standard Auto:");
+        rbtStandard.setText("Standard");
+        rbtStandard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(rbtStandard);
+
+        lbStandardAuto.setBackground(new java.awt.Color(255, 255, 255));
+        lbStandardAuto.setOpaque(true);
         getContentPane().add(lbStandardAuto);
 
+        rbtSportwagen.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rbtSportwagen);
         rbtSportwagen.setText("Sportwagen");
+        rbtSportwagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(rbtSportwagen);
+
+        lbSportwagen.setBackground(new java.awt.Color(255, 255, 255));
+        lbSportwagen.setOpaque(true);
         getContentPane().add(lbSportwagen);
 
+        rbtBatmobil.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(rbtBatmobil);
         rbtBatmobil.setText("Batmobil");
+        rbtBatmobil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(rbtBatmobil);
+
+        lbBatmobil.setBackground(new java.awt.Color(255, 255, 255));
+        lbBatmobil.setOpaque(true);
         getContentPane().add(lbBatmobil);
 
+        btnAuswaehlen.setBackground(new java.awt.Color(153, 255, 153));
         btnAuswaehlen.setText("Auswählen");
+        btnAuswaehlen.setOpaque(false);
         btnAuswaehlen.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -99,6 +127,7 @@ public class AutoDialog extends javax.swing.JDialog
         });
         getContentPane().add(btnAuswaehlen);
 
+        btnAbbrechen.setBackground(new java.awt.Color(255, 153, 153));
         btnAbbrechen.setText("Abbrechen");
         btnAbbrechen.addActionListener(new java.awt.event.ActionListener()
         {
