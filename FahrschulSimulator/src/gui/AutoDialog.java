@@ -6,6 +6,7 @@
 package gui;
 
 import bl.Auto;
+import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
 
@@ -25,11 +26,28 @@ public class AutoDialog extends javax.swing.JDialog
     {
         super(parent, modal);
         initComponents();
-        lbBatmobil.setIcon(new ImageIcon(pfad + "Batmobil.jpg"));
-        lbSportwagen.setIcon(new ImageIcon(pfad + "Sportwagen.png"));
-        lbStandardAuto.setIcon(new ImageIcon(pfad + "Standard.png"));
+        
+        setSize(500, 500);
+        setLocationRelativeTo(this);
+        
+        setTitle("Auto auswählen");
+        
+        
+        int width = 200;
+        int height = 100;
+        
+        lbBatmobil.setIcon(resizeImage(new ImageIcon(pfad + "Batmobil.jpg"), width, height));
+        lbSportwagen.setIcon(resizeImage(new ImageIcon(pfad + "Sportwagen.png"), width, height));
+        lbStandardAuto.setIcon(resizeImage(new ImageIcon(pfad + "Standard.png"), width, height));
     }
 
+    public ImageIcon resizeImage(ImageIcon img, int width, int height)
+    { 
+        Image newimg = img.getImage().getScaledInstance(width, height,  java.awt.Image.SCALE_SMOOTH);
+        return new ImageIcon(newimg);
+    }
+    
+    
     private Auto auto;
     
     /**
