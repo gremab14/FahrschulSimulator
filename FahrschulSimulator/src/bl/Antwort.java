@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class Antwort implements Serializable
 {
     private String antwort;
-    boolean isRichtig;
+    private boolean isRichtig;
 
     public Antwort(String antwort, boolean isRichtig)
     {

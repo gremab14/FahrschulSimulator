@@ -6,6 +6,10 @@
 package gui;
 
 import bl.Auto;
+import java.awt.Color;
+import java.awt.Image;
+import java.io.File;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -13,7 +17,9 @@ import bl.Auto;
  */
 public class AutoDialog extends javax.swing.JDialog
 {
-
+    private String pfad = System.getProperty("user.dir") + File.separator + "src" + File.separator + "autos" + File.separator;
+    private boolean isOK = true;
+    private String ausgewaehltesAuto = "";
     /**
      * Creates new form AutoDialog
      */
@@ -21,8 +27,37 @@ public class AutoDialog extends javax.swing.JDialog
     {
         super(parent, modal);
         initComponents();
+        
+        setSize(500, 500);
+        setLocationRelativeTo(this);
+        
+        setTitle("Auto auswählen");
+        
+        rbtBatmobil.setOpaque(true);
+        rbtSportwagen.setOpaque(true);
+        rbtStandard.setOpaque(true);
+        btnAbbrechen.setOpaque(true);
+        btnAuswaehlen.setOpaque(true);
+        
+        
+        setBackground(Color.yellow);
+        
+        
+        int width = 200;
+        int height = 100;
+        
+        lbBatmobil.setIcon(resizeImage(new ImageIcon(pfad + "Batmobil.jpg"), width, height));
+        lbSportwagen.setIcon(resizeImage(new ImageIcon(pfad + "Sportwagen.png"), width, height));
+        lbStandardAuto.setIcon(resizeImage(new ImageIcon(pfad + "Standard.png"), width, height));
     }
 
+    public ImageIcon resizeImage(ImageIcon img, int width, int height)
+    { 
+        Image newimg = img.getImage().getScaledInstance(width, height,  java.awt.Image.SCALE_SMOOTH);
+        return new ImageIcon(newimg);
+    }
+    
+    
     private Auto auto;
     
     /**
@@ -35,21 +70,102 @@ public class AutoDialog extends javax.swing.JDialog
     private void initComponents()
     {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        rbtStandard = new javax.swing.JRadioButton();
+        lbStandardAuto = new javax.swing.JLabel();
+        rbtSportwagen = new javax.swing.JRadioButton();
+        lbSportwagen = new javax.swing.JLabel();
+        rbtBatmobil = new javax.swing.JRadioButton();
+        lbBatmobil = new javax.swing.JLabel();
+        btnAuswaehlen = new javax.swing.JButton();
+        btnAbbrechen = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new java.awt.GridLayout(4, 2));
+
+        rbtStandard.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(rbtStandard);
+        rbtStandard.setSelected(true);
+        rbtStandard.setText("Standard");
+        rbtStandard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(rbtStandard);
+
+        lbStandardAuto.setBackground(new java.awt.Color(255, 255, 255));
+        lbStandardAuto.setOpaque(true);
+        getContentPane().add(lbStandardAuto);
+
+        rbtSportwagen.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(rbtSportwagen);
+        rbtSportwagen.setText("Sportwagen");
+        rbtSportwagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(rbtSportwagen);
+
+        lbSportwagen.setBackground(new java.awt.Color(255, 255, 255));
+        lbSportwagen.setOpaque(true);
+        getContentPane().add(lbSportwagen);
+
+        rbtBatmobil.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(rbtBatmobil);
+        rbtBatmobil.setText("Batmobil");
+        rbtBatmobil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(rbtBatmobil);
+
+        lbBatmobil.setBackground(new java.awt.Color(255, 255, 255));
+        lbBatmobil.setOpaque(true);
+        getContentPane().add(lbBatmobil);
+
+        btnAuswaehlen.setBackground(new java.awt.Color(153, 255, 153));
+        btnAuswaehlen.setText("Auswählen");
+        btnAuswaehlen.setOpaque(false);
+        btnAuswaehlen.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnAuswaehlenActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAuswaehlen);
+
+        btnAbbrechen.setBackground(new java.awt.Color(255, 153, 153));
+        btnAbbrechen.setText("Abbrechen");
+        btnAbbrechen.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnAbbrechenActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAbbrechen);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAuswaehlenActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAuswaehlenActionPerformed
+    {//GEN-HEADEREND:event_btnAuswaehlenActionPerformed
+        if(rbtBatmobil.isSelected())
+        {
+            ausgewaehltesAuto = pfad + "Batmobil.jpg";
+        }
+        else if(rbtSportwagen.isSelected())
+        {
+            ausgewaehltesAuto = pfad + "Sportwagen.png";
+        }
+        else
+        {
+            ausgewaehltesAuto = pfad + "Standard.png";
+        }
+        
+        
+        isOK = true;
+        this.dispose();
+    }//GEN-LAST:event_btnAuswaehlenActionPerformed
+
+    private void btnAbbrechenActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAbbrechenActionPerformed
+    {//GEN-HEADEREND:event_btnAbbrechenActionPerformed
+        isOK = false;
+        this.dispose();
+    }//GEN-LAST:event_btnAbbrechenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,5 +222,14 @@ public class AutoDialog extends javax.swing.JDialog
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAbbrechen;
+    private javax.swing.JButton btnAuswaehlen;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel lbBatmobil;
+    private javax.swing.JLabel lbSportwagen;
+    private javax.swing.JLabel lbStandardAuto;
+    private javax.swing.JRadioButton rbtBatmobil;
+    private javax.swing.JRadioButton rbtSportwagen;
+    private javax.swing.JRadioButton rbtStandard;
     // End of variables declaration//GEN-END:variables
 }
