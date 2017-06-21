@@ -14,12 +14,9 @@ import javax.swing.JOptionPane;
 
 public class FragenDialog extends javax.swing.JDialog
 {
-<<<<<<< HEAD
     private Frage frage;
     private boolean isRichtig;
-=======
     private String pfad = System.getProperty("user.dir") + File.separator + "src" + File.separator + "bilder" + File.separator + "12.gif";
-    private static Frage frage = null;
     /**
      * Creates new form FragenDialog
      */
@@ -63,18 +60,10 @@ public class FragenDialog extends javax.swing.JDialog
         rbtAntwort3.setText(liste.get(2).getAntwort());
         rbtAntwort4.setText(liste.get(3).getAntwort());
     }
->>>>>>> origin/master
     
     /**
      * Creates new form FragenDialog
      */
-    public FragenDialog(java.awt.Frame parent, boolean modal,Frage f)
-    {
-        super(parent, modal);
-        initComponents();
-        frage = f;
-    }
-    
     public void initFroge()
     {
         
@@ -123,7 +112,6 @@ public class FragenDialog extends javax.swing.JDialog
         plButton = new javax.swing.JPanel();
         btnWeiter = new javax.swing.JButton();
 
-<<<<<<< HEAD
         plMain.setBorder(javax.swing.BorderFactory.createTitledBorder("Frage Nr.:"));
         plMain.setLayout(new java.awt.GridLayout(2, 1));
 
@@ -168,7 +156,6 @@ public class FragenDialog extends javax.swing.JDialog
 
         btWeiter.setText("Weiter");
         getContentPane().add(btWeiter, java.awt.BorderLayout.SOUTH);
-=======
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
@@ -244,7 +231,6 @@ public class FragenDialog extends javax.swing.JDialog
         plUnten.add(plButton, java.awt.BorderLayout.SOUTH);
 
         getContentPane().add(plUnten, java.awt.BorderLayout.SOUTH);
->>>>>>> origin/master
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -252,7 +238,6 @@ public class FragenDialog extends javax.swing.JDialog
     /**
      * @param args the command line arguments
      */
-<<<<<<< HEAD
 //    public static void main(String args[])
 //    {
 //        /* Set the Nimbus look and feel */
@@ -303,61 +288,9 @@ public class FragenDialog extends javax.swing.JDialog
 ////            }
 //        });
 //    }
-=======
-    public static void main(String args[])
-    {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(FragenDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(FragenDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(FragenDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(FragenDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                FragenDialog dialog = new FragenDialog(new javax.swing.JFrame(), true, frage);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter()
-                {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e)
-                    {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
->>>>>>> origin/master
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
+
     private javax.swing.JButton btWeiter;
     private javax.swing.JCheckBox cbAntwort1;
     private javax.swing.JCheckBox cbAntwort2;
@@ -365,10 +298,8 @@ public class FragenDialog extends javax.swing.JDialog
     private javax.swing.JCheckBox cbAntwort4;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JLabel lbFrage;
-    private javax.swing.JPanel plBild;
     private javax.swing.JPanel plMain;
-=======
+
     private javax.swing.JButton btnWeiter;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbBild;
@@ -385,6 +316,5 @@ public class FragenDialog extends javax.swing.JDialog
     private javax.swing.JRadioButton rbtAntwort2;
     private javax.swing.JRadioButton rbtAntwort3;
     private javax.swing.JRadioButton rbtAntwort4;
->>>>>>> origin/master
     // End of variables declaration//GEN-END:variables
 }
